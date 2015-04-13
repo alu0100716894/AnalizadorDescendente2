@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analizador Descendente Predictivo Recursivo</title>
+    <!-- Bootstrap Styles-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><b>A</b>DPR</a>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- Gh-Pages -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="http://alu0100716894.github.io" target="_blank"><i class="fa fa-user fa-fw"></i> Manuel Rodriguez Santana</a>
+                        </li>
+                        <li><a href="http://alu0100766950.github.io"><i class="fa fa-user fa-fw"></i> Jose Carlos Rodriguez Cortes</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Github -->
+                <li class="dropdown">
+                    <a href="https://github.com/alu0100766950/AnalizadorDescendente/tree/gh-pages" target="_blank"><img src="http://gilcreque.com/assets/img/github.png" style="height: 32px; width: 32px"></a>
+                </li>
+                <!-- Heroku -->
+                <li class="dropdown">
+                    <a href="#" target="_blank"><img src="https://devcenter.heroku.com/assets/favicon-90e838409660ce441e3c9c206cb707e8.ico" style="height: 32px; width: 32px"></a>
+                </li>
+                <!-- Heroku -->
+                <li class="dropdown">
+                    <a href="#" target="_blank"><img src="http://www.psicotecnicas.es/images/tuto_tests.png" style="height: 32px; width: 32px"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-header">
+                        Analizador <small>Descendente Predictivo Recursivo</small>
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="panel-heading">
+                <section>
+                    <p>This website contains a simple example of a predictive parser</p>
+                    <div class="header" id="header">
+                        <p>Load example to parse</p>
+                        <div>
+                            <textarea autofocus="" cols="80" id="original" rows="5"></textarea>
+                        </div>
+                        <br/>
+                        <div>
+                            <div class="loadfile">
+                                <button id="example1" onclick="dump(&#39;/examples/example1.txt&#39;);" type="button">example1</button>
+                                <button id="example2" onclick="dump(&#39;/examples/example2.txt&#39;);" type="button">example2</button>
+                                <button id="example3" onclick="dump(&#39;/examples/example3.txt&#39;);" type="button">example3</button>
+                                <button id="exampleerr" onclick="dump(&#39;/examples/example_err.txt&#39;);" type="button">example_err</button>
+                                <input id="files" type="file" />
+                            </div>
+                            <script type="text/javascript">
+                                function dump(fileName) {
+                                  $.ajax({
+                                    url: fileName,
+                                    cache: false,
+                                    success: function (data) {
+                                      $("#original").val(data);
+                                    }
+                                  });
+                                }
+                                document.getElementById('files').addEventListener('change', CopyMe, false);
+                                function CopyMe(evt) {
+                                  var file = evt.target.files[0];
+                                  if (file) {
+                                    var reader = new FileReader();
+                                    reader.onload = function(e) { 
+                                      original.innerHTML = e.target.result;
+                                    }
+                                    reader.readAsText(file);
+                                  }
+                                  else { alert("Failed to load file"); }
+                            </script>
+
+                        </div>
+                    </section>
+                        <div class="panel-body">
+                            <input class="mylink" id="PARSE" type="button" value="parse" /><pre id="OUTPUT">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+     
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- Morris Chart Js -->
+    <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="assets/js/morris/morris.js"></script>
+    
+    
+    <script src="assets/js/easypiechart.js"></script>
+    <script src="assets/js/easypiechart-data.js"></script>
+    
+    
+    <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script>
+</body>
