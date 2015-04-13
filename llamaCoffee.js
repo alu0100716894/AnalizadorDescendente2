@@ -1,2 +1,1 @@
-require('coffee-script/register');
-require('./public/coffeescript/main.coffee'); 
+require('coffee-script/register'); 

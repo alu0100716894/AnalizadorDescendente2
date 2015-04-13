@@ -15,8 +15,6 @@
 
   window.onload = ->
     PARSE.onclick = main
-
-  alert("entre")
  
   Object.constructor::error = (message, t) ->
     t = t or this
