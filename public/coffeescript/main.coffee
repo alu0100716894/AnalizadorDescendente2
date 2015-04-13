@@ -15,6 +15,8 @@
 
   window.onload = ->
     PARSE.onclick = main
+  
+  alert("WELCOME");
  
   Object.constructor::error = (message, t) ->
     t = t or this
