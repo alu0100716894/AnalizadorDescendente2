@@ -1,4 +1,12 @@
-#wrapper
+extends layout
+
+block content
+  - each post in posts
+    .page-header
+      li
+        a(href="/post/#{post.id}")= post.title
+        .content!=post.body
+  #wrapper
       nav.navbar.navbar-default.top-navbar(role='navigation')
         .navbar-header
           button.navbar-toggle(type='button', data-toggle='collapse', data-target='.sidebar-collapse')

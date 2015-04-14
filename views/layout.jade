@@ -1,4 +1,8 @@
+extends layout
+
+block content
 doctype html(xmlns='http://www.w3.org/1999/xhtml')
+html
 head
     meta(charset='utf-8')
     |     
@@ -31,11 +35,14 @@ head
     link(href='/styles.css', media='screen, projection', rel='stylesheet')
     // Google Fonts
     link(href='http://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet', type='text/css')
-  body
-    header
-      h1 Predictive Recursive Descent Parser
-      == slim :nav
-    section
-      == yield
-    /!footer
-        a href="/" back to main
+   body
+    .topbar-wrapper
+      .topbar
+        .topbar-inner
+          .container
+            h3: a(href="/") My Coffeepress Blog
+            ul.nav
+              li: a(href="/post/new") New Post
+              #content.container
+                block content
+    
